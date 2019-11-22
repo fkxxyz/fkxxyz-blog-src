@@ -238,7 +238,7 @@ hexo deploy
 
 好像没什么用，查资料据之后，发现这条命令是代替上述一顿操作，能自动把 public 上传到 github 中自己的仓库，何乐而不为？直接看相应的官方介绍 [github-pages](https://hexo.io/zh-cn/docs/github-pages) 和 [one-command-deployment](https://hexo.io/docs/one-command-deployment)
 
-```
+```shell
 cd /tmp/a/myfolder
 
 ## 安装模块

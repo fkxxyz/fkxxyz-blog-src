@@ -10,5 +10,5 @@
 
 
 
-要了解此仓库的用途，参考： [探索如何更方便的管理和部署 hexo 博客](https://www.fkxxyz.com/2019/11/23/management-hexo-blog/)
+要了解此仓库的用途，参考： [探索如何更方便的管理和部署 hexo 博客](https://www.fkxxyz.com/learn/hexo/management/)
 
