@@ -1,9 +1,8 @@
 ---
 title: 探究在 archlinux 上用 hexo 建立个人的博客
-p: learn-hexo
 date: 2019-11-22 17:49:44
 categories:
-- 学习过程
+- 学习与探究
 tags:
 - archlinux
 - hexo
