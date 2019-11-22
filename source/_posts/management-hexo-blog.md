@@ -91,15 +91,15 @@ rm -rf /tmp/a
 
 ### 编写一键脚本
 
-首先设计这个脚本，这个脚本放在 fkxxyz-blog-src 仓库目录中运行，功能是解压指定的博客目录模板压缩包到特定位置，脚本名为 setup.sh。
+首先设计这个脚本，这个脚本放在 fkxxyz-blog-src 仓库目录中运行，功能是解压指定的博客目录模板压缩包到特定位置，脚本名为 setup。
 
 ```shell
 cd ~/github.com/fkxxyz/fkxxyz-blog-src
-touch setup.sh
-chmod +x setup.sh
+touch setup
+chmod +x setup
 ```
 
-然后编写 setup.sh，由于以后随时会更新完善，实时内容详见 https://github.com/fkxxyz/fkxxyz-blog-src/blob/master/setup.sh
+然后编写 setup，由于以后随时会更新完善，实时内容详见 https://github.com/fkxxyz/fkxxyz-blog-src/blob/master/setup
 
 为了方便起见再编写两个脚本 gen 和 push， gen 用于复制修改过主题到目标目录，并且一键 hexo clean、hexo generate；push 用于一键 hexo deploy 。
 
@@ -107,7 +107,50 @@ chmod +x setup.sh
 
 ```shell
 git add -A
-git commit -m 'first commit'
+git commit -m update
 git push
 ```
 
+## 测试解决效果
+
+现在，所有的一切工作都可以在 ~/github.com/fkxxyz/fkxxyz-blog-src 目录里进行了，首先切换到此目录。
+
+```shell
+cd ~/github.com/fkxxyz/fkxxyz-blog-src
+```
+
+下面开始逐一测试效果。
+
+### 更换主题
+
+```shell
+./setup
+
+# 然后下载 jacman 主题，放到 ~/hexo/themes/jacman
+```
+
+### 生成网站
+
+```shell
+./gen
+
+# 然后根据提示打开浏览器，进入地址 http://localhost:4000 进行测试。
+```
+
+### 上传改动
+
+```shell
+./push
+
+# 然后打开浏览器，输入自己域名 www.fkxxyz.com 查看效果。
+```
+
+### 写博客
+
+一切写博客的操作都在当前目录的 source 里，手动复制模板来完成，写完之后，可以 ./gen 生成然后测试，然后 ./push 上传。
+
+
+
+## 尾声
+
+这下可算是大功告成了，以后再也不怕换主题了，也不会怕丢失什么了，以后终于能够把一切精里放在写博客上了，达到了一劳永逸的效果。
