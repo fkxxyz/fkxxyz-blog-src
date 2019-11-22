@@ -1,0 +1,27 @@
+#!/bin/bash
+
+workdir="$(cd "$(dirname "$0")" && pwd)"
+
+default_hexo_home=~/hexo
+
+main(){
+	# $1 指定博客主目录，若不指定，则为默认值
+	
+	local hexo_home="$1"
+	
+	[ "$hexo_home" ] || hexo_home="$default_hexo_home"
+	
+	for theme in $(ls "$hexo_home/themes"); do
+		if [ -d "$workdir/themes/$theme" ]; then
+			cp -sfr "$workdir/themes/$theme/"* "$hexo_home/themes/$theme/" || exit 1
+		fi
+	done
+	
+	hexo clean --cwd "$hexo_home" || exit 1
+	hexo generate --cwd "$hexo_home" || exit 1
+	hexo server --cwd "$hexo_home" || exit 1
+}
+
+main "$@"
+
+
