@@ -11,12 +11,32 @@ main(){
 	
 	[ "$hexo_home" ] || hexo_home="$default_hexo_home"
 	
+	# 修补已存在的主题目录
 	for theme in $(ls "$hexo_home/themes"); do
 		if [ -d "$workdir/themes/$theme" ]; then
 			cp -sfr "$workdir/themes/$theme/"* "$hexo_home/themes/$theme/" || exit 1
 		fi
 	done
 	
+	# 确保所设置的主题存在，若不存在则自动选个已存在的主题
+	cur_theme="$(cat "$workdir/_config.yml" | grep '^theme:' | cut -c8-)"
+	if [ ! -d "$hexo_home/themes/$cur_theme" ]; then
+		# 寻找有效主题
+		for theme in $(ls "$hexo_home/themes"); do
+			[ -d "$hexo_home/themes/$theme" ] || continue
+			cur_theme="$theme"
+			break
+		done
+		if [ ! -d "$hexo_home/themes/$cur_theme" ]; then
+			echo "在 $hexo_home/themes 中找不到有效主题！" >&2
+			exit 1
+		fi
+		
+		# 修改 _config.yml 的主题为有效主题
+		sed -i 's/^theme: .*/theme: '"$cur_theme"'/g' "$workdir/_config.yml"
+	fi
+	
+	# 清空并根据 source 生成页面，然后开启服务器以便测试
 	hexo clean --cwd "$hexo_home" || exit 1
 	hexo generate --cwd "$hexo_home" || exit 1
 	hexo server --cwd "$hexo_home" || exit 1

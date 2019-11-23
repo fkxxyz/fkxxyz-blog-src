@@ -38,6 +38,8 @@ main(){
 	ln -sf "$workdir/_config.yml" "$hexo_home/_config.yml" || exit 1
 	ln -sf "$workdir/source" "$hexo_home/source" || exit 1
 	ln -sf "$public_branch" "$hexo_home/.deploy_git" || exit 1
+	
+	echo "重新部署完毕，请将主题放到 $hexo_home/themes 后运行 ./gen"
 }
 
 main "$@"
