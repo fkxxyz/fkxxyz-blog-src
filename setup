@@ -29,11 +29,11 @@ main(){
 	fi
 	
 	# 将 博客目录模板压缩包 解压到目标目录
-	mkdir "$hexo_home" || exit 1
-	tar xf "$default_blog_templete" -C "$hexo_home" || exit 1
-	mv "$hexo_home/hexo-templete/"* "$hexo_home" || exit 1
-	rm -r "$hexo_home/hexo-templete" || exit 1
-	#cp -rf ~/Templates/blog-templete "$hexo_home" || exit 1
+	#mkdir "$hexo_home" || exit 1
+	#tar xf "$default_blog_templete" -C "$hexo_home" || exit 1
+	#mv "$hexo_home/hexo-templete/"* "$hexo_home" || exit 1
+	#rm -r "$hexo_home/hexo-templete" || exit 1
+	cp -rf ~/Templates/blog-templete "$hexo_home" || exit 1
 
 	# 替换、链接目标目录的一些东西
 	cp -f "$workdir/my_config.yml" "$workdir/_config.yml" || exit 1

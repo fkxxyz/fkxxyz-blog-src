@@ -4,6 +4,14 @@ layout: "page"
 date: 2019-11-22 18:53:49
 ---
 
+
+
+此博客建立于 2019-11-22，基于 [hexo](https://hexo.io/) 框架，主题是 [jacman](https://github.com/wuchong/jacman)，页面在 [coding](https://coding.net/) 上托管，项目地址为 https://fkxxyz.coding.net/p/fkxxyz/git 。
+
+用来分享技术，记录成长之路，便于大家更好的了解我。
+
+感兴趣的小伙伴可以联系我。
+
 github： [fkxxyz](https://github.com/fkxxyz)
 
 Email：fkxxyz@163.com
