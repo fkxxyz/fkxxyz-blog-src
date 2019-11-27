@@ -1,10 +1,11 @@
 ##### Menu
 menu:
   主页: /
-  目录: /categories
+  分类: /categories
   标签: /tags
   归档: /archives
   关于: /about
+  订阅: /atom.xml
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
@@ -19,7 +20,7 @@ widgets:
 - tag
 #- links
 #- douban
-#- rss
+- rss
 #- weibo
   ## provide eight widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo
 
@@ -38,7 +39,7 @@ author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if 
 banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 ### Theme Color 
 theme_color:
-    theme: '#2ca6cb'    ##the defaut theme color is blue
+    theme: '#DB71FF'    ##the defaut theme color is blue
 
 # 代码高亮主题
 # available: default | night
@@ -47,10 +48,15 @@ highlight_theme: default
 #### index post is expanding or not 
 index:
   expand: true           ## default is unexpanding,so you can only see the short description of each post.
-  excerpt_link: Read More  
+  excerpt_link: 阅读更多
 
 close_aside: false  #close sidebar in post page if true
-mathjax: false      #enable mathjax if true
+
+
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: true
 
 ### Creative Commons License Support, see http://creativecommons.org/ 
 ### you can choose: by , by-nc , by-nc-nd , by-nc-sa , by-nd , by-sa , zero
@@ -67,7 +73,7 @@ author:
   zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
   email: fkxxyz@163.com     ## e.g. imjark@gmail.com
   twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
-  github: fkxxyz for https://github.com/fkxxyz    ## e.g. wuchong for https://github.com/wuchong
+  github: fkxxyz     ## e.g. wuchong for https://github.com/wuchong
   facebook:   ## e.g. imjark for https://facebook.com/imjark
   linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
   google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
@@ -83,8 +89,8 @@ toc:
 
 #### Links
 links:
-  码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区
-  Jark's Blog: http://wuchong.me
+  #码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区
+  #Jark's Blog: http://wuchong.me
 
 
 

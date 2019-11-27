@@ -8,7 +8,7 @@ tags:
 - 双显卡切换
 ---
 
-双显卡切换的问题是难倒很多新手的问题，我也是那么折腾过来的，本文做一个速记总结。
+双显卡切换的问题是难倒很多新手的问题，我也是那么折腾过来的，[大黄蜂的wiki](https://wiki.archlinux.org/index.php/Bumblebee_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 也有详细的介绍，本文做一个速记总结。
 
 <!--more-->
 
@@ -16,16 +16,20 @@ tags:
 
 ### 安装
 
-用包管理器安装英伟达显卡驱动（如果显卡较老加载不成功则可尝试nvidia-390xx、nvidia-340xx，更老则可搜索aur里的驱动安装，注意后面加了 -390xx 之后，后面所有 nvidia 都得加 -390xx，其它以此类推）
+用包管理器安装英伟达显卡驱动（如果显卡较老加载不成功则可尝试nvidia-390xx，更老则可搜索aur里的驱动安装 nvidia-340xx ，注意后面加了 -390xx 之后，后面所有带 nvidia 的包名都得加 -390xx，其它以此类推）
 
 ```shell
-pacman -S nvidia
+pacman -S nvidia nvidia-utils
+
+# 若是 390xx 的，则包名为 nvidia-390xx nvidia-390xx-utils
 ```
 
-32位程序程序使用英伟达显卡驱动支持
+32位程序程序使用英伟达显卡驱动支持（记得需要[开启 multilib 仓库](https://wiki.archlinux.org/index.php/Official_repositories_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#multilib)）
 
 ```shell
 pacman -S lib32-nvidia-utils
+
+# 若是 390xx 的，则包名为 lib32-nvidia-390xx-utils
 ```
 
 尝试加载驱动

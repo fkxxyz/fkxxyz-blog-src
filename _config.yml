@@ -88,44 +88,19 @@ exclude:
 ignore:
 
 # Extensions
-## Plugins: https://hexo.io/plugins/
+# Plugins: https://hexo.io/plugins/
+plugins:
+  hexo-generator-feed
+
+# Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
 ## Themes: https://hexo.io/themes/
 theme: jacman
 
-
-## Markdown
-## https://github.com/hexojs/hexo-renderer-marked
-marked:
-  gfm: true
-  
-## Plugins: https://hexo.io/plugins/
-### JsonContent
-jsonContent:
-  meta: false
-  pages:
-    title: true
-    date: true
-    path: true
-    text: true
-  posts:
-    title: true
-    date: true
-    path: true
-    text: true
-    tags: true
-    categories: true
-  ignore:
-    - 404.html
-    
-### Creat sitemap
-sitemap:
-  path: sitemap.xml
-
-### Adds nofollow attribute to all external links in your hexo blog posts automatically.
-nofollow:
-  enable: true
-  exclude:
-    - www.fkxxyz.com # eg: zthxxx.me
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -133,3 +108,4 @@ deploy:
   type: git
   repo: https://e.coding.net/fkxxyz/fkxxyz.git
   branch: master
+  

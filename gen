@@ -18,6 +18,9 @@ main(){
 		fi
 	done
 	
+	# 修补 node_modules 目录
+	cp -sfr "$workdir/node_modules" "$hexo_home" || exit 1
+	
 	# 确保所设置的主题存在，若不存在则自动选个已存在的主题
 	cur_theme="$(cat "$workdir/_config.yml" | grep '^theme:' | cut -c8-)"
 	if [ ! -d "$hexo_home/themes/$cur_theme" ]; then

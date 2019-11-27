@@ -2,17 +2,17 @@
 title: 探究在 archlinux 上用 hexo 建立个人的博客
 date: 2019-11-22 17:49:44
 categories:
-- 学习与探究
+- 探究学习
 tags:
 - archlinux
 - hexo
 ---
 
-## 探究 hexo 如何在 archlinux 上运行
-
 archlinux 的官方仓库里面没有 hexo 这个包，而 aur 里有个，但是装了之后发现一些问题导致一头雾水，目录也很乱，不得不自己想办法探究探究原理，要明白彻底一点问题才能解决。
 
 <!--more-->
+
+## 探究 hexo 如何在 archlinux 上运行
 
 首先看看[官方文档](https://hexo.io/zh-cn/docs/)得知 *Hexo*是一个用 node.js 实现的博客框架，然后看了 [node.js的archwiki](https://wiki.archlinux.org/index.php/Node.js_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 得知，npm 是 node.js 的包管理器 。
 
