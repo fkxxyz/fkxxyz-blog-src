@@ -1,0 +1,10 @@
+
+<% if (theme.download_markdown.enable == true) { %>
+  <div class="new-meta-item download">
+    <a href="<%- url_for(theme.download_markdown.url.replace(/\/+$/gm,'') + '/' + post.path.replace(/^\/+|\/+$/gm,'') + ".md") %>" rel="nofollow">
+      <i class="fas fa-download"></i>
+      <p><%- __('post.download') %></p>
+    </a>
+  </div>
+<% } %>
+

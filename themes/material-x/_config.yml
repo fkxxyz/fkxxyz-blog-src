@@ -23,6 +23,13 @@ nodewaves: false
 busuanzi: true    # 统计访问量
 # fastclick: true
 
+view_markdown:
+  enable: true
+  url: https://github.com/fkxxyz/fkxxyz-blog-src/blob/master/source/_posts
+
+download_markdown:
+  enable: true
+  url: https://github.com/fkxxyz/fkxxyz-blog-src/raw/master/source/_posts
 
 
 ############################### 默认值 ###############################
@@ -129,7 +136,8 @@ layout:
   # 文章列表（主页、自定义的列表）布局
   posts:
     # 列表中每一篇文章的meta信息
-    meta: [title, author, date, categories, top]
+    #meta: [title, author, date, categories, top]
+    meta: [title, author, date, categories, markdown, download, top]
     # 列表类页面的侧边栏
     #sidebar: [author, plain, list, grid, category, tagcloud]
     sidebar: [grid, category, tagcloud]
@@ -140,7 +148,7 @@ layout:
     # 默认的meta信息，文章中没有配置则按照这里的配置来显示，设置为false则不显示
     # 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
     # 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
-    header: [title, author, date, categories, counter, top]
+    header: [title, author, date, categories, markdown, download, counter, top]
     footer: [updated, tags, share]
     # 文章页面的侧边栏
     #sidebar: [author, plain, toc, grid, category, tagcloud, list, related_posts]
@@ -212,16 +220,10 @@ sidebar:
     icon: fas fa-thumbs-up
     title: 强烈推荐
     rows:
-#      - name: Hexo脚本（Mac）
-#        url: https://xaoxuu.com/wiki/hexo.sh/
-#      - name: 图床脚本（Mac）
-#        url: https://xaoxuu.com/wiki/vim-cn.sh/
-#      - name: 图片在线压缩
-#        url: https://yasuotu.com
-#      - name: 生成Favicon
-#        url: https://realfavicongenerator.net
-#      - name: 简历主题
-#        url: https://mxclub.github.io/resume/
+      - name: 生成Favicon
+        url: https://realfavicongenerator.net
+      - name: 代码在线工具
+        url: https://tool.oschina.net
 
 
 

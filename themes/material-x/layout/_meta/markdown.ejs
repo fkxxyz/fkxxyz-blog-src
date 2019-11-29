@@ -1,0 +1,10 @@
+
+<% if (theme.view_markdown.enable == true) { %>
+  <div class="new-meta-item markdown">
+    <a href="<%- url_for(theme.view_markdown.url.replace(/\/+$/gm,'') + '/' + post.path.replace(/^\/+|\/+$/gm,'') + ".md") %>" rel="nofollow">
+      <i class="fab fa-markdown"></i>
+      <p><%- __('post.markdown_source') %></p>
+    </a>
+  </div>
+<% } %>
+
