@@ -1,5 +1,6 @@
 ---
 title: 在 Archlinux 下从 AUR 装的 xmind 启动报错的问题探究
+cover: false
 date: 2019-04-18 13:22:25
 categories:
 - 探究学习

@@ -1,5 +1,6 @@
 ---
 title: 用 python 实现 xmind 和 mindjet 格式互转
+cover: false
 date: 2019-09-28 10:34:51
 categories:
 - 原创开发

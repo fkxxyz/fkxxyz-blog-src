@@ -1,4 +1,7 @@
 ---
 title: 标签
-layout: tags
+cover: false
+index: true
+layout: tag
 ---
+

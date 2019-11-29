@@ -1,5 +1,6 @@
 ---
 title: 记一次 excel 文档的密码破解的探索
+cover: false
 date: 2019-11-26 16:11:08
 categories:
 - 探究学习

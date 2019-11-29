@@ -1,5 +1,6 @@
 ---
 title: archlinux 的基本配置
+cover: false
 date: 2019-04-15 00:04:54
 categories:
 - 教程

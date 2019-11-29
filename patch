@@ -38,11 +38,6 @@ main(){
 		# 修改 _config.yml 的主题为有效主题
 		sed -i 's/^theme: .*/theme: '"$cur_theme"'/g' "$workdir/_config.yml"
 	fi
-	
-	# 清空并根据 source 生成页面，然后开启服务器以便测试
-	hexo clean --cwd "$hexo_home" || exit 1
-	hexo generate --cwd "$hexo_home" || exit 1
-	hexo server --cwd "$hexo_home" || exit 1
 }
 
 main "$@"

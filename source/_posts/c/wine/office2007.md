@@ -1,5 +1,6 @@
 ---
 title: 任意 linux 发行版下用 wine 安装 office2007 完美运行
+cover: false
 date: 2019-05-21 15:20:36
 categories:
 - 教程

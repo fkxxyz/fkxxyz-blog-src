@@ -1,5 +1,6 @@
 ---
 title: 探索在 Archlinux 下使用 wine 时偶尔提示未找到 wine-mono 的完美解决方案
+cover: false
 date: 2019-06-03 22:20:49
 categories:
 - 探究学习

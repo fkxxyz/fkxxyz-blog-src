@@ -1,4 +1,6 @@
 ---
 title: 分类
-layout: categories
+cover: false
+index: true
+layout: category
 ---
