@@ -4,11 +4,11 @@ info:
   docs: https://xaoxuu.com/wiki/material-x/
   cdn: # 要使用CDN，请在根目录的config文件中写上 use_cdn: true
     css:
-      style: #https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11.26/css/style.css
+      style: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11.26/css/style.css
     js:
-      app: #https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/app.js
-      search: #https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/search.js
-      volantis: #https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0.6/js/volantis.min.js
+      app: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/app.js
+      search: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.11/js/search.js
+      volantis: https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0.6/js/volantis.min.js
 
 
 
@@ -140,7 +140,7 @@ layout:
     meta: [title, author, date, categories, markdown, download, top]
     # 列表类页面的侧边栏
     #sidebar: [author, plain, list, grid, category, tagcloud]
-    sidebar: [grid, category, tagcloud]
+    sidebar: [grid, category, tagcloud, list]
   # 文章页面布局
   article:
     # 文章页面主体元素，你也可以在页面的Front-matter中设置
@@ -220,13 +220,15 @@ sidebar:
     icon: fas fa-thumbs-up
     title: 强烈推荐
     rows:
-      - name: 生成Favicon
+      - name: 免费生成 Favicon
         url: https://realfavicongenerator.net
+      - name: jsdelivr 免费 CDN
+        url: https://github.com/jsdelivr/jsdelivr
       - name: 代码在线工具
         url: https://tool.oschina.net
-
-
-
+      - name: 在线 IDE
+        url: https://www.tutorialspoint.com/codingground.htm
+        
 # 社交信息
 social:
   - icon: fas fa-rss
@@ -235,6 +237,8 @@ social:
     url: mailto:fkxxyz@163.com
   - icon: fab fa-github
     url: https://github.com/fkxxyz
+  - icon: fab fa-qq
+    url: https://ti.qq.com/open_qq/index2.html?url=mqqapi%3a%2f%2fuserprofile%2ffriend_profile_card%3fsrc_type%3dweb%26version%3d1.0%26source%3d2%26uin%3d396519827
 #  - icon: fas fa-headphones-alt
 #    url: https://music.163.com/#/user/home?id=63035382
 
