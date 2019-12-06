@@ -25,11 +25,11 @@ busuanzi: true    # 统计访问量
 
 view_markdown:
   enable: true
-  url: https://github.com/fkxxyz/fkxxyz-blog-src/blob/master/source/_posts
+  url: https://github.com/fkxxyz/fkxxyz-blog-src/blob/master/source
 
 download_markdown:
   enable: true
-  url: https://github.com/fkxxyz/fkxxyz-blog-src/raw/master/source/_posts
+  url: https://github.com/fkxxyz/fkxxyz-blog-src/raw/master/source
 
 
 ############################### 默认值 ###############################

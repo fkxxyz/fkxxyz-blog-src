@@ -1,7 +1,15 @@
 
 <% if (theme.download_markdown.enable == true) { %>
   <div class="new-meta-item download">
-    <a href="<%- url_for(theme.download_markdown.url.replace(/\/+$/gm,'') + '/' + post.path.replace(/^\/+|\/+$/gm,'') + ".md") %>" rel="nofollow">
+    <%
+      base_url = theme.download_markdown.url.replace(/\/+$/gm,'')
+      post_path = post.path.replace(/^\/+|\/+$/gm,'')
+    %>
+    <% if (post_path == "about/index.html") { %>
+      <a href="<%- url_for(base_url + '/about/index.md') %>" rel="nofollow">
+    <% } else { %>
+      <a href="<%- url_for(base_url + '/_posts/' + post_path + '.md') %>" rel="nofollow">
+    <% } %>
       <i class="fas fa-download"></i>
       <p><%- __('post.download') %></p>
     </a>
