@@ -19,7 +19,7 @@ typora-root-url: ../..
 
 偶然情况进了一下阿里云控制台，看了一眼监控，眼前的景象惊呆了。
 
-![](/home/qaz/blog/source/img/ali-cpu.png)
+![](/img/ali-cpu.png)
 
 连续，一个月，CPU占用100%？我阿里云平时基本空闲，也只有我访问，也没什么复杂的计算，都是挂挂反向代理和做普通网站用，怎么也不可能出现这种现象。所以到这里基本确定，是有什么问题了，但是还没联想到病毒。
 
@@ -37,7 +37,7 @@ typora-root-url: ../..
 ps -ef | grep user
 ```
 
-![](/home/qaz/blog/source/img/vir-proc.png)
+![](/img/vir-proc.png)
 
 在家目录的隐藏文件。直接去看看这个文件。
 
@@ -45,7 +45,7 @@ ps -ef | grep user
 ls -al
 ```
 
-![](/home/qaz/blog/source/img/vir-file.png)
+![](/img/vir-file.png)
 
 这文件还挺大，大到 3 兆，看看它的类型。
 
@@ -53,19 +53,19 @@ ls -al
 file .dhpcd
 ```
 
-![](/home/qaz/blog/source/img/vir-type.png)
+![](/img/vir-type.png)
 
 这是编译好的二进制文件，排除了是我那朋友捣鬼。
 
 把这文件上传到 [virscan](https://www.virscan.org/) 扫描一下吧。几分钟后看到[扫描结果](http://r.virscan.org/language/zh-cn/report/f17b54910531cf6e2d98a963acadab48)。
 
-![](/home/qaz/blog/source/img/vir-scan-result.png)
+![](/img/vir-scan-result.png)
 
-![](/home/qaz/blog/source/img/vir-scan-result-1.png)
-![](/home/qaz/blog/source/img/vir-scan-result-2.png)
-![](/home/qaz/blog/source/img/vir-scan-result-3.png)
-![](/home/qaz/blog/source/img/vir-scan-result-4.png)
-![](/home/qaz/blog/source/img/vir-scan-result-5.png)
+![](/img/vir-scan-result-1.png)
+![](/img/vir-scan-result-2.png)
+![](/img/vir-scan-result-3.png)
+![](/img/vir-scan-result-4.png)
+![](/img/vir-scan-result-5.png)
 
 可以看到，出现 BitCoinMiner 的字样，让我几乎确定是比特币挖矿病毒。而且现象也符合，狂烧 CPU，就是在挖矿嘛。
 
@@ -77,7 +77,7 @@ file .dhpcd
 chmod 000 .dhpcd
 ```
 
-![](/home/qaz/blog/source/img/vir-000.png)
+![](/img/vir-000.png)
 
 删除它吗？不删了，放那吧，等哪天想研究了再研究研究，把这小可爱留着做纪念。
 
