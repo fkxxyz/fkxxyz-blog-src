@@ -63,7 +63,7 @@ Usage: wine PROGRAM [ARGUMENTS...]   Run the specified program
 
 ## 安装 winetricks
 
-对于archlinux，官方仓库有winetrices所以能直接安装，直接执行 sudo pacman -S winetricks 即可
+对于archlinux，官方仓库有winetricks所以能直接安装，直接执行 sudo pacman -S winetricks 即可
 
 对于其他发行版，可以手动下载安装（以下步骤若是执行出错，提示缺少什么就装什么，如 wget 命令未找到，就用包管理器安装 wget）
 
@@ -110,10 +110,6 @@ WINEARCH=win32
 
 # 建立容器目录
 winecfg
-​```
-在弹出的 wine设置中，最好将 windows 版本设置成 Windows XP，然后点确定
-
-开始用 winetrick 安装 office2007
 ```
 
 在弹出的 wine设置中，最好将 windows 版本设置成 Windows XP，然后点确定。
