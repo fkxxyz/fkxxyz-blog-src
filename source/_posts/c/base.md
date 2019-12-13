@@ -192,5 +192,5 @@ rfkill list
 ```
 解除 rf 锁
 ```
-rfkill unlick all
+rfkill unblock all
 ```
