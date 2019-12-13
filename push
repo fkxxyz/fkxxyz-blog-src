@@ -1,0 +1,9 @@
+#!/bin/bash
+
+workdir="$(cd "$(dirname "$0")" && pwd)"
+
+hexo --cwd ~/hexo clean && hexo --cwd ~/hexo gen && hexo --cwd ~/hexo d &
+cd $workdir
+git add -A ~/blog && git commit -m update && git push &
+
+

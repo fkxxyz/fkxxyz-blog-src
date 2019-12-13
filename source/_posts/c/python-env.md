@@ -30,7 +30,7 @@ tags:
 
 我把这一章放到最开头，作为速查命令
 
-### 安装命令
+### 安装 python
 
 列出所有可以安装的版本
 
@@ -54,7 +54,25 @@ pyenv install 3.6.9
 # 如果源码已经被放在了 ~/.pyenv/cache/Python-3.6.9.tar.xz 那么就不会下载了，直接解压编译。
 ```
 
-### 以全局方式选择 python 版本
+### 查询版本
+
+#### 查看当前选择的 python 版本
+
+该命令会提示当前环境如果执行 python 的话，会启动的 python 版本，以及如何选择的 python 版本
+
+```shell
+pyenv version
+```
+
+#### 查看所有可选择的 python 版本
+
+```shell
+pyenv versions
+```
+
+### 切换选择 python 版本
+
+#### 以全局方式选择 python 版本
 
 这种方式全局生效，在任意的 shell 调用 python 时，都会以设置的 python 版本启动。
 
@@ -70,7 +88,7 @@ pyenv global
 pyenv global 3.6.9
 ```
 
-### 以目录模式选择 python 版本
+#### 以目录模式选择 python 版本
 
 此方式可以把某个目录设为特定版本的 python，设置时会在这个目录里写入 .python_version 文件
 
@@ -86,7 +104,7 @@ pyenv local
 pyenv local 3.6.9
 ```
 
-### 以 shell 环境模式选择 python 版本
+#### 以 shell 环境模式选择 python 版本
 
 此方式可以把当前 shell 环境设置为特定版本的 python，设置时会改变 PYENV_VERSION 这个环境变量
 
