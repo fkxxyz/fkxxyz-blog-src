@@ -77,38 +77,99 @@ yay -S spacman
 
 ## 用法
 
+### 命令语法
+
 ```
 用法: spacman [-h] [--config 列表文件] [--pacman 包管理器] [--apply] [--query]
 
 可选参数:
   -h, --help            显示帮助信息
  --config 列表文件, -c 列表文件
-                        指定列表文件（默认为 ~/.config/spacman.conf）
+                        指定列表文件（默认为 ~/.config/spacman/default.conf）
   --pacman 包管理器, -p 包管理器
                         指定包管理器（例如 yay，默认为 pacman）
   --apply, -a           自动调用包管理器，将列表应用到系统
   --query, -q           查询一个列表中所有的包
 ```
 
+以上用法可能已经过时没有更新，详见 spacman --help
+
 用法举例
 
 ```shell
-# 将 ~/.config/spacman.conf 列表与系统已安装的包进行对比，输出结果
+# 将 ~/.config/spacman/default.conf 列表与系统已安装的包进行对比，输出结果
 spacman
 
 # 将 ~/spacman1.conf 作为列表进行对比，输出结果
 spacman -c ~/spacman1.conf
 
-# 将 ~/.config/spacman.conf 列表应用到系统
+# 将 ~/.config/spacman/default.conf 列表应用到系统
 spacman -a
 # 警告，万万不可将空列表应用到系统，否则会卸载所有软件包
 
-# 将 ~/.config/spacman.conf 列表应用到系统，并用 yay 作为包管理器
+# 将 ~/.config/spacman/default.conf 列表应用到系统，并用 yay 作为包管理器
 spacman -a -p yay
 
-# 列出 ~/.config/spacman.conf 列表中所有软件包并排序
+# 列出 ~/.config/spacman/default.conf 列表中所有软件包并排序
 spacman -q | sort
 ```
 
+### 如何写配置
+
+到底该如何写配置文件呢，首先要自己总结出自己所有需要的包列表，写到一个文本文档里，只需要写你需要的包，不需要操心任何依赖，一行一个，格式如下：
+
+```shell
+linux
+linux-firmware
+base
+grub
+dhcpcd
+iw
+wpa_supplicant
+archlinuxcn-keyring
+yay
+```
+
+当然为了你的方便，你可以把配置文件当成笔记，顺便记录linux软件包名和功能，井号开头注释即可，也可以在包名后面跟井号注释，空行随意
+
+```shell
+# 内核
+linux
+linux-firmware  # 固件
+
+# 基本
+base
+
+# 引导器
+grub
+
+# 网络
+dhcpcd    # dhcp客户端
+iw   # 无线管理
+wpa_supplicant  # 无线加密
+
+# 源
+archlinuxcn-keyring
+
+# aur helper
+yay
+```
+
+如果嫌麻烦，可以用 pacman -Qe 快速生成一个列表，这命令表示列出所有自己用pacman主动安装的包名。
+
+```shell
+pacman -Qe > a.conf
+```
+
+但是不建议这样做，因为生成的列表是按字母排序，而且自己整理注释起来麻烦，还不如自己从头写个。
+
 我的日常列表也托管到 github 了，可以随时参考 [spacman.conf](https://github.com/fkxxyz/archlinux-config/blob/master/spacman/spacman.conf)
 
+### 使用逻辑
+
+我暂时想出以下使用方法，大家可以尽情的发挥想象发挥更多的潜力。
+
+1. 当成个人做的笔记记录，用linux用久了自己也记不清自己需要哪些包，配置文件可以刚好帮你记录。
+2. 配置列表中，自己想删去哪个包了，可以井号注释掉，而不必删掉一行，然后 spacman -a 即可，以后想反悔直接去掉井号注释，再次 spacman -a
+3. 可以把所有自己可能需要的同类软件包都记录下来，然后都用井号注释掉，然后想用哪个直接去掉哪个的井号。
+4. 实验各个软件，而不加进列表，只把满意的软件加进列表，不满意的由于没加进列表，直接 spacman -a 会删掉所有没进列表的软件包括其依赖，而不必一个一个 pacman -Rsc 卸载，省心又高效。例如实验各个桌面环境，一个gnome桌面环境有多少个顶层包咱们也知道。

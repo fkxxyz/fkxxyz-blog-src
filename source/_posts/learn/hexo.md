@@ -211,7 +211,9 @@ chromium public/index.html
 hexo server
 ```
 
-然后浏览器里面输入网址 http://localhost:4000，
+然后浏览器里面输入网址
+
+> http://localhost:4000
 
 这下看到主题了，也能看到自己刚刚创建的 第一篇文章、第二篇文章、33333，还有最初始的 Hello World
 
