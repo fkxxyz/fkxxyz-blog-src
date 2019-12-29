@@ -118,8 +118,8 @@ nmcli d wifi rescan ifname wlp3s0
 
 连接wifi
 ```shell
-nmcli d wifi <SSID> password <password>
-nmcli d wifi <SSID> password <password> ifname wlp3s0
+nmcli d wifi connect <SSID> password <password>
+nmcli d wifi connect <SSID> password <password> ifname wlp3s0
 ```
 
 

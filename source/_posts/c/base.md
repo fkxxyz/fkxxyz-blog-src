@@ -194,3 +194,12 @@ rfkill list
 ```
 rfkill unblock all
 ```
+
+### 开启 sysrq
+
+```shell
+echo kernel.sysrq = 1 > /etc/sysctl.d/sysrq.conf
+```
+
+该功能默认关闭，开启后对于死机时候防止硬盘损坏尤其管用。参见 [官方文档sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html)
+
