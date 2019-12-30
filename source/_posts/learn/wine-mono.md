@@ -181,3 +181,24 @@ Exec = /usr/bin/sh -c 'find /usr/share/wine/mono -type l -exec unlink {} \; ; ln
 ```
 
 至此，完美解决，以后无论如何更新 wine 或 wine-mono，或者无论如何更换 wine 的版本，总是能找到对应的 wine-mono，也再也不会弹出那个对话框了。
+
+后来发现 wine-gecko 也出了类似的情况，那么同理。
+
+在 /etc/pacman.d/hooks 里面新建一个文件 wine-gecko-version-fix.hook
+
+里面写入
+
+```ini
+[Trigger]
+Type = File
+Operation = Install
+Operation = Upgrade
+Target = usr/lib/wine/appwiz.cpl.so
+Target = usr/share/wine/gecko/*
+
+[Action]
+Description = Fixing the version of wine-gecko file.
+When = PostTransaction
+Exec = /usr/bin/sh -c 'find /usr/share/wine/gecko -type l -exec unlink {} \; ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86_64.msi")" "/usr/share/wine/gecko/$(sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86_64.msi\\).*/\\1/p" /usr/lib/wine/appwiz.cpl.so)" 2>/dev/null ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86.msi")" "/usr/share/wine/gecko/$(sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86.msi\\).*/\\1/p" /usr/lib32/wine/appwiz.cpl.so)" 2>/dev/null ; true'
+```
+
