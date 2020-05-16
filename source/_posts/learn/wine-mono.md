@@ -1,7 +1,7 @@
 ---
 title: 探索在 Archlinux 下使用 wine 时偶尔提示未找到 wine-mono 的完美解决方案
 cover: false
-date: 2019-06-03 22:20:49
+date: 2020-05-12 17:23:52
 categories:
 - 探究学习
 tags:
@@ -124,7 +124,7 @@ winecfg
 
 可见创建符号链接是目前最低成本的解决方法，那，有没有完美的解决方法呢？
 
-## 完美解决
+## 完美解决（已失效）
 
 通过以上思考，我最需要的就是，更新后不需要手动去创建符号链接，用脚本自动实现更新后的解决版本不一致的问题。
 
@@ -201,4 +201,66 @@ Description = Fixing the version of wine-gecko file.
 When = PostTransaction
 Exec = /usr/bin/sh -c 'find /usr/share/wine/gecko -type l -exec unlink {} \; ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86_64.msi")" "/usr/share/wine/gecko/$(sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86_64.msi\\).*/\\1/p" /usr/lib/wine/appwiz.cpl.so)" 2>/dev/null ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86.msi")" "/usr/share/wine/gecko/$(sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86.msi\\).*/\\1/p" /usr/lib32/wine/appwiz.cpl.so)" 2>/dev/null ; true'
 ```
+
+## 后续完美解决
+
+上述方法成功维持了一段时间，但最近发现又蹦出那个对话框，上述方法失效了？经过探索发现，/usr/lib/wine/appwiz.cpl.so 这个文件已经被改动，里面的相关字符串已经成了 unicode 字符串，并且文件名多了个 -x86，例如：
+
+```
+wine-mono-5.0.0-x86.msi
+```
+
+那么，根据这种情况改进一下即可解决。
+
+1. 利用正则表达式匹配
+
+   ```shell
+   strings -eb /usr/lib/wine/appwiz.cpl.so | sed -n 's/.*\(wine-mono-[-x[:digit:].]\+.msi\).*/\1/p'
+   ```
+
+   输出结果为 wine-mono-5.0.0-x86.msi
+
+2. 用包管理器查询包含的文件，然后正则匹配到具体文件名
+
+   ```shell
+   pacman -Qlq wine-mono | grep -o 'wine-mono-\([-x[:digit:].]\+\).msi'
+   ```
+
+   输出结果为 wine-mono-5.0.0.msi
+
+写成 hook 脚本 wine-mono-version-fix.hook
+
+```ini
+[Trigger]
+Type = File
+Operation = Install
+Operation = Upgrade
+Target = usr/lib/wine/appwiz.cpl.so
+Target = usr/share/wine/mono/*
+
+[Action]
+Description = Fixing the version of wine-mono file.
+When = PostTransaction
+Exec = /usr/bin/sh -c 'find /usr/share/wine/mono -type l -exec unlink {} \; ; ln -sf "$(pacman -Qlq wine-mono | grep "wine-mono-\\([-x[:digit:].]\\+\\).msi")" "/usr/share/wine/mono/$(strings -eb /usr/lib/wine/appwiz.cpl.so | sed -n "s/.*\\(wine-mono-[-x[:digit:].]\\+.msi\\).*/\\1/p")" 2>/dev/null ; true'
+```
+
+同理，gecko 也这样解决。
+
+```ini
+[Trigger]
+Type = File
+Operation = Install
+Operation = Upgrade
+Target = usr/lib/wine/appwiz.cpl.so
+Target = usr/share/wine/gecko/*
+
+[Action]
+Description = Fixing the version of wine-gecko file.
+When = PostTransaction
+Exec = /usr/bin/sh -c 'find /usr/share/wine/gecko -type l -exec unlink {} \; ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86_64.msi")" "/usr/share/wine/gecko/$(strings -eb /usr/lib/wine/appwiz.cpl.so | sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86_64.msi\\).*/\\1/p")" 2>/dev/null ; ln -sf "$(pacman -Qlq wine-gecko | grep "wine.gecko-\\([-.[:digit:]]\\+\\)-x86.msi")" "/usr/share/wine/gecko/$(strings -eb /usr/lib32/wine/appwiz.cpl.so | sed -n "s/.*\\(wine.gecko-[-.[:digit:]]\+-x86.msi\\).*/\\1/p")" 2>/dev/null ; true'
+```
+
+最后，我将上述两个文件用 PKDBUILD 打包上传到 AUR，方便后续使用，包名为 [wine-mono-gecko-version-fix](https://aur.archlinux.org/packages/wine-mono-gecko-version-fix/)
+
+
 

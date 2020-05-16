@@ -122,7 +122,7 @@ useradd -m ???
 将某用户设成管理员（能够用sudo）
 
 ```
-usermod -G wheel ???
+usermod -a -G wheel ???
 ```
 
 

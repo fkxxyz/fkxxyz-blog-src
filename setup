@@ -4,7 +4,7 @@ workdir="$(cd "$(dirname "$0")" && pwd)"
 
 default_blog_templete=~/Documents/hexo-templete.tar.xz
 default_hexo_home=~/hexo
-default_public_branch=~/github.com/fkxxyz/fkxxyz.github.io
+default_public_branch=~/e.coding.net/fkxxyz
 
 main(){
 	# $1 指定要解压的 博客目录模板压缩包 若不指定，则为默认值
