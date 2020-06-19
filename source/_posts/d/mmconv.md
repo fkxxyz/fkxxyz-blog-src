@@ -2,11 +2,15 @@
 title: 用 python 实现 xmind 和 mindjet 格式互转
 cover: false
 date: 2019-09-28 10:34:51
+updated: 2019-09-28 10:34:51
 categories:
 - 原创开发
 tags:
 - python
 - 思维导图
+btns:
+  repo: https://github.com/fkxxyz/mmconv
+  feedback: https://github.com/fkxxyz/mmconv/issues
 ---
 
 一直想找一款跨平台的免费又好用的思维导图软件，可是哪有两全其美的事呢，个人感觉安卓版的 mindjet 相对好用一些，windows 和 linux 版的 xmind 相对好用一些，但是 xmind 和 mindjet 的格式肯定是不兼容的，而探索发现，他们的文档解压之后都是以 xml 方式储存的，压缩也是简单的 zip 压缩，也没有任何加密，于是，故事开始了。

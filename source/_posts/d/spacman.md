@@ -2,11 +2,15 @@
 title: 用 python 自制需求列表来进行包管理，从此再也不用重装系统
 cover: false
 date: 2019-04-13 03:25:44
+updated: 2019-04-13 03:25:44
 categories:
 - 原创开发
 tags:
 - archlinux
 - python
+btns:
+  repo: https://github.com/fkxxyz/spacman
+  feedback: https://github.com/fkxxyz/spacman/issues
 ---
 
 

@@ -2,8 +2,26 @@
 
 workdir="$(cd "$(dirname "$0")" && pwd)"
 
-hexo --cwd ~/hexo clean && hexo --cwd ~/hexo gen && hexo --cwd ~/hexo d &
-cd $workdir
-git add -A ~/blog && git commit -m update && git push &
+default_hexo_home=~/hexo
 
+main(){
+	# 将博客发布，将源码上传
+	# $1 指定hexo 目录，若不指定，则为默认值
+	[ "$hexo_home" ] || hexo_home="$default_hexo_home"
 
+	# 将博客发布
+	cd "$hexo_home"
+	npx hexo clean && \
+		npx hexo generate && \
+		npx hexo deploy &
+
+	# 将源码上传
+	cd "$workdir"
+	git add -A ~/blog && \
+		git commit -m update && \
+		git push &
+
+	wait
+}
+
+main

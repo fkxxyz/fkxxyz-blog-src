@@ -2,6 +2,7 @@
 title: archlinux 下 nvidia 双显卡配置--大黄蜂方案
 cover: false
 date: 2019-04-18 20:45:08
+updated: 2019-04-18 20:45:08
 categories:
 - 教程
 tags:

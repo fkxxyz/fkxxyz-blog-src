@@ -7,7 +7,7 @@ title: 四叶草
 subtitle: '四叶草的博客'
 description: '一个技术宅的技术分享'
 keywords: archlinux,linux
-author: 四叶草🍀
+author: 四叶草🍀️
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -48,6 +48,8 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace: ''
+  wrap: true
+  hljs: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -88,18 +90,20 @@ exclude:
 ignore:
 
 # Extensions
-# Plugins: https://hexo.io/plugins/
-plugins:
-  hexo-generator-feed
-
-# Feed Atom
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
+## Plugins: https://hexo.io/plugins/
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  pre_class: highlight
 
 ## Themes: https://hexo.io/themes/
-theme: material-x
+theme: volantis
 
 
 # Deployment

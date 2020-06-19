@@ -2,6 +2,7 @@
 title: 探索如何更方便的管理和部署 hexo 博客
 cover: false
 date: 2019-11-23 01:09:15
+updated: 2019-11-23 01:09:15
 categories:
 - 探究学习
 tags:

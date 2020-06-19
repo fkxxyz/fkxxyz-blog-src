@@ -2,6 +2,7 @@
 title: 探究在 archlinux 上用 hexo 建立个人的博客
 cover: false
 date: 2019-11-22 17:49:44
+updated: 2019-11-22 17:49:44
 categories:
 - 探究学习
 tags:

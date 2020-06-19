@@ -2,6 +2,7 @@
 title: NetworkManager 网络配置速查
 cover: false
 date: 2019-04-15 03:06:10
+updated: 2019-04-15 03:06:10
 categories:
 - 教程
 tags:

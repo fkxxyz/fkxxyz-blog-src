@@ -2,6 +2,7 @@
 title: 用 python 实现了个文本简谱解释器，可以用来编配和弦
 cover: false
 date: 2020-06-06 14:49:41
+updated: 2020-06-06 14:49:41
 categories:
 - 原创开发
 tags:
@@ -9,6 +10,9 @@ tags:
 - 和弦
 - python
 - 即兴伴奏
+btns:
+  repo: https://github.com/fkxxyz/simp-score
+  feedback: https://github.com/fkxxyz/simp-score/issues
 typora-root-url: ../..
 ---
 
