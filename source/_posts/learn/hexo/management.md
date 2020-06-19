@@ -2,7 +2,7 @@
 title: 探索如何更方便的管理和部署 hexo 博客
 cover: false
 date: 2019-11-23 01:09:15
-updated: 2019-11-23 01:09:15
+updated: 2020-06-20 07:08:43
 categories:
 - 探究学习
 tags:
@@ -26,9 +26,9 @@ tags:
 对于以上问题，想出一些一劳永逸的解决思路。
 
 1. 对所有需要保存的重要的东西，托管到 github。
-2. 提前保存好一份 hexo-starter 仓库到本地，并且 npm install 之后，将整个目录压缩打包保存到本地，我将它成为博客目录模板，要更换主题时，直接解压使用，大幅度提升效率。
+2. 改用 npm 来直接从淘宝镜像站自动安装 hexo，并且安装其依赖，写成一个脚本，大幅度提升效率。
 3. 本地存一份保存重要的东西的仓库，包括 source 目录，将 source 目录用符号链接的方式链接到博客的主目录。
-4. 将 .deploy_git 放到自己的本地 github 仓库目录 ~/github.com/fkxxyz/fkxxyz.github.io，同样用符号链接的方式链接到博客的主目录。
+4. 将 .deploy_git 放到自己的本地 github 仓库目录 ，同样用符号链接的方式链接到博客的主目录。
 5. 将主题目录的改动也记录到此仓库，用符号链接的方式对应过去，这里来可以妙用 cp 的 -s 参数。
 6. 以上一切可以使用 shell 脚本来自动化，快速快速更换主题，同时 shell 脚本本身也可以算作重要的东西托管到 github。
 
@@ -56,41 +56,6 @@ git add -A
 git commit -m 'first commit'
 git push
 ```
-
-### 制作好博客目录模板压缩包
-
-此步骤可以使得以后用解压的方式代替 hexo init + npm install 二连大幅度提升效率。
-
-```shell
-# 克隆 hexo-starter 仓库到临时目录
-mkdir /tmp/a
-cd /tmp/a
-git clone https://github.com/hexojs/hexo-starter.git
-
-# 精简 hexo-starter 目录
-cd hexo-starter
-ls -a
-rm -rf .*
-rm -r source
-rm -r themes/landscape
-find
-
-# 安装必要的模块
-npm install
-npm install hexo-deployer-git --save
-
-# 打包压缩保存起来
-cd ..
-mv hexo-starter hexo-templete
-tar cJf hexo-templete.tar.xz hexo-templete
-mv hexo-templete.tar.xz ~/Documents
-
-# 后续清理
-cd
-rm -rf /tmp/a
-```
-
-至此，hexo-templete.tar.xz 已经保存到 ~/Document 里了，后续随时解压使用。
 
 ### 编写一键脚本
 

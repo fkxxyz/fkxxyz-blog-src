@@ -5,13 +5,14 @@ workdir="$(cd "$(dirname "$0")" && pwd)"
 default_hexo_home=~/hexo
 
 main(){
-	# 将博客发布
+	# 生成并测试博客
 	# $1 指定hexo 目录，若不指定，则为默认值
 	[ "$hexo_home" ] || hexo_home="$default_hexo_home"
 
 	cd "$hexo_home"
-	npx hexo generate && \
-		npx hexo deploy
+	npx hexo clean && \
+		npx hexo generate && \
+		npx hexo server
 }
 
 main
