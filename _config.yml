@@ -108,8 +108,12 @@ theme: volantis
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+use_cdn: true
 deploy:
   type: git
+  #repo: https://github.com/fkxxyz/fkxxyz.github.io.git
+  #repo: https://gitee.com/fkxxyz/fkxxyz.git
   repo: https://e.coding.net/fkxxyz/fkxxyz.git
   branch: master
-  
+
+
