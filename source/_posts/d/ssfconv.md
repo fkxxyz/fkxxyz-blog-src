@@ -1,5 +1,5 @@
 ---
-title: fcitx 真的也可以这么美 —— 对 fcitx 使用搜狗皮肤的改进
+title: fcitx 也可以这么美 —— 对 fcitx 使用搜狗皮肤的改进
 cover: false
 date: 2020-05-25 12:46:51
 updated: 2020-05-25 12:46:51

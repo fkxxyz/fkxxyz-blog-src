@@ -2,21 +2,20 @@
 title: 再也不用为中文输入法而烦恼了
 cover: false
 date: 2020-06-10 07:28:01
-updated: 2020-06-20 03:38:50
+updated: 2020-07-01 22:31:07
 categories:
 - 原创开发
 tags:
 - rime
 - fcitx
+- fcitx5
 - 输入法
 btns:
   repo: https://github.com/fkxxyz/rime-cloverpinyin
   faq: /d/cloverpinyin/#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
   feedback: https://github.com/fkxxyz/rime-cloverpinyin/issues
-top: true
 typora-root-url: ../..
 ---
-
 你是否经历过搜狗输入法总是闪退bug的绝望？
 
 你是否经历过 fcitx 自带输入法的词库简陋？
@@ -43,6 +42,7 @@ typora-root-url: ../..
             * [安装 fcitx](#安装-fcitx)
             * [安装 rime](#安装-rime)
             * [安装:four_leaf_clover:四叶草输入方案](#安装four_leaf_clover四叶草输入方案)
+            * [切换到:four_leaf_clover:四叶草输入方案](#切换到:four_leaf_clover:四叶草输入方案)
             * [美观](#美观)
          * [windows端（小狼毫）](#windows端小狼毫)
             * [下载安装小狼毫](#下载安装小狼毫)
@@ -72,7 +72,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## 简介
 
-在linux端，很多拼音输入法有少许 bug 或卡顿，或功能不全，所以接触了 [rime](https://rime.im) ，然而自带的[朙月拼音](https://github.com/rime/rime-luna-pinyin)和[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)均不是很不是很理想，但是探索过程中发现很多很好的开源项目提供词库，而 rime 输入法引擎几乎拥有所有的优点（开源、干净无广告、运行流畅、跨平台、...），甚至云同步也能用坚果云之类的服务手动实现，唯一的缺点就是门槛高定制困难，默认配置的不习惯劝退了很多人。
+在linux端，很多拼音输入法有少许 bug 或卡顿，或功能不全，所以接触了 [rime](https://rime.im) ，然而自带的[朙月拼音](https://github.com/rime/rime-luna-pinyin)和[袖珍简化字拼音](https://github.com/rime/rime-pinyin-simp)均不是很不是很理想，但是探索过程中发现很多很好的开源项目提供词库，而 rime 输入法引擎几乎拥有所有的优点（开源、干净无广告、运行流畅、跨平台、...），甚至云同步也能用坚果云之类的服务手动实现，唯一的缺点就是门槛高定制困难，默认配置的不习惯劝退了很多人。
 
 在此方案诞生之前，我没能找到一个比较不错的简体拼音（全拼）的输入方案，多数人用惯了大陆国产的输入法，而以我的动手能力，完全能够按照这些输入法的习惯，自己定制一个方案，共享给更多的人，让更多的人不需要怎么配置也能用上非常类似于搜狗拼音输入法的方案，尽可能开箱即用，降低所有人的使用门槛。所以，为什么不自己做一个呢？
 
@@ -89,12 +89,12 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 1. 完全从零开始制作文字的拼音和基础词库，导入了几个很好用的词库：
 
    - 用 [pypinyin](https://github.com/mozillazg/python-pinyin) 项目生成所有字词的拼音
-   - 合并[结巴中文分词](https://github.com/fxsjy/jieba)项目、[rime八股文](https://github.com/rime/rime-essay)和[袖珍簡化字拼音](https://github.com/rime/rime-pinyin-simp)的字的字频
+   - 合并[结巴中文分词](https://github.com/fxsjy/jieba)项目、[rime八股文](https://github.com/rime/rime-essay)和[袖珍简化字拼音](https://github.com/rime/rime-pinyin-simp)的字的字频
    - 由百度搜索到某个人基于大数据做过的[360万中文词库+词性+词频](https://download.csdn.net/download/xmp3x/8621683)，该词库是用ansj分词对270G新闻语料进行分词统计词频获得
    - [清华大学开源词库](https://github.com/thunlp/THUOCL)，统计来自各大主流网站如CSDN博客、新浪新闻、搜狗语料
    - 搜狗细胞词库 [网络流行新词【官方推荐】](https://pinyin.sogou.com/dict/detail/index/4)
   
-2. 词库本身基于简体，并且加入繁简切换，包括自定义词库也能切换繁体（朙月拼音输入简体时的需要经过opencc转换，而且自定义词库也得手动转换成繁体才能繁简切换，而袖珍簡化字拼音不支持繁体）
+2. 词库本身基于简体，并且加入繁简切换，包括自定义词库也能切换繁体（朙月拼音输入简体时的需要经过opencc转换，而且自定义词库也得手动转换成繁体才能繁简切换，而袖珍简化字拼音不支持繁体）
 
 3. 默认加入 emoji 表情输入支持
 
@@ -118,7 +118,7 @@ rime 是跨平台的，在以下四个平台可用：
 
 - **windows** 使用小狼毫
 
-- **macOS** 可以用鼠鬚管
+- **macOS** 可以用鼠须管
 
 - **安卓** 使用同文输入法
 
@@ -185,6 +185,8 @@ yay -S fcitx-cloverpinyin
 
 然后将其解压到 ~/.config/fcitx/rime
 
+#### 切换到:four_leaf_clover:四叶草输入方案
+
 创建 ~/.config/fcitx/rime/default.custom.yaml ，内容为
 
 ```yaml
@@ -200,8 +202,6 @@ patch:
 
 关于 default.custom.yaml 文件的更多解释，可以参考[官方文档定制指南](https://github.com/rime/home/wiki/CustomizationGuide)
 
-
-
 #### 美观
 
 关于 fcitx 的皮肤，可以参考这里：
@@ -210,27 +210,140 @@ patch:
 
 ### windows端（小狼毫）
 
+下面以 win7 为例截图示范。
+
 #### 下载安装小狼毫
 
 来 [rime下载页](https://rime.im/download/) 下载最新版本的小狼毫（注意 Windows XP 只最高只能下载 0.12.0），然后按照提示进行安装。
+
+> - [小狼毫 0.14.3](https://bintray.com/rime/weasel/release)〔[下载](https://dl.bintray.com/rime/weasel/weasel-0.14.3.0-installer.exe)〕〔[更新日志](https://rime.im/release/weasel/)〕〔[历史版本](https://bintray.com/rime/weasel/release)〕〔[0.9.x 版本](https://bintray.com/lotem/rime/Weasel)〕〔[测试频道](https://bintray.com/rime/weasel/testing)〕
+>   适用于 Windows 7, Windows 8/8.1, Windows 10
+> - [小狼毫 0.12.0](https://bintray.com/rime/weasel/release/0.12.0)〔[下载](https://dl.bintray.com/rime/weasel/weasel-0.12.0.0-installer.exe)〕
+>   适用于 Windows XP SP3
+
+如果上述官网无法访问或者访问较慢，我在蓝奏网盘也上传了一份 https://fkxxyz.lanzous.com/b00zm9j5g
 
 #### 下载输入方案
 
 来发布页 https://github.com/fkxxyz/rime-cloverpinyin/releases 或 https://fkxxyz.lanzous.com/b00zl958j 下载最新版本的配置文件，如 clover.schema-1.1.0.zip
 
-然后将其解压到 %appdata%/rime 即可（如果你更改了用户配置目录，那么解压到对应目录即可）。
+切换到小狼毫输入法（默认快捷键 Ctrl+Shift，或直接从托盘图标选择）
 
-然后切换到中州韵输入法，右键托盘图标，点击输入法设定，勾选上四叶草输入方案，确定，再点右键托盘图标，重新部署，等待数分钟后，即可使用。
+![](https://www.fkxxyz.com/img/weasel-1.png)
+
+然后右键托盘图标“中”，选择“用户文件夹”
+
+![](https://www.fkxxyz.com/img/weasel-2.png)
+
+然后将你刚刚下载的压缩包解压到这里即可，解压后的效果如下
+
+![](https://www.fkxxyz.com/img/weasel-3.png)
+
+#### 切换输入方案
+
+接着找到“输入法设定”
+
+![](https://www.fkxxyz.com/img/weasel-4.png)
+
+在方案选单设定中找到“四叶草简体拼音”并勾选，一般你不需要其它方案了，其它选项可以全部去掉。
+
+然后点“中”
+
+![](https://www.fkxxyz.com/img/weasel-5.png)
+
+
 
 #### 美观
 
-小狼毫的字体、配色方案参考 [官方配置指南--小狼毫](https://github.com/rime/home/wiki/CustomizationGuide#一例定製小狼毫字體字號)
+上述点了“中”之后，会出现界面风格设定，选中你喜欢的颜色。
+
+![](https://www.fkxxyz.com/img/weasel-6.png)
+
+这些设定完成后，会进行自动部署，需要等待半分钟左右，就可以使用了。
+
+更多修改小狼毫的字体、配色方案参考 [官方配置指南--小狼毫](https://github.com/rime/home/wiki/CustomizationGuide#一例定制小狼毫字体字号)
+
+> ### 一例、定制【小狼毫】字体字号
+>
+> 虽与输入方案无关，也在此列出以作参考。
+>
+> ```
+> # weasel.custom.yaml
+> 
+> patch:
+>   "style/font_face": "明兰"  # 字体名称，从记事本等处的系统字体对话框里能看到
+>   "style/font_point": 14     # 字号，只认数字的，不认「五号」、「小五」这样的
+> ```
+>
+> ### 一例、定制【小狼毫】配色方案
+>
+> 注：这款配色已经在新版本的小狼毫里预设了，做练习时，你可以将文中 `starcraft` 换成自己命名的标识。
+>
+> ```
+> # weasel.custom.yaml
+> 
+> patch:
+>   "style/color_scheme": starcraft    # 这项用于选中下面定义的新方案
+>   "preset_color_schemes/starcraft":  # 在配色方案列表里加入标识为 starcraft 的新方案
+>     name: 星际我争霸／StarCraft
+>     author: Contralisk <contralisk@gmail.com>, original artwork by Blizzard Entertainment
+>     text_color: 0xccaa88             # 编码行文字颜色，24位色值，用十六进制书写方便些，顺序是蓝绿红0xBBGGRR
+>     candidate_text_color: 0x30bb55   # 候选项文字颜色，当与文字颜色不同时指定
+>     back_color: 0x000000             # 底色
+>     border_color: 0x1010a0           # 边框颜色，与底色相同则为无边框的效果
+>     hilited_text_color: 0xfecb96     # 高亮文字，即与当前高亮候选对应的那部份输入码
+>     hilited_back_color: 0x000000     # 设定高亮文字的底色，可起到凸显高亮部份的作用
+>     hilited_candidate_text_color: 0x60ffa8  # 高亮候选项的文字颜色，要醒目！
+>     hilited_candidate_back_color: 0x000000  # 高亮候选项的底色，若与背景色不同就会显出光棒
+> ```
+>
+> 效果自己看！
+>
+> 也可以参照这张比较直观的图：
+>
+> ![img](https://camo.githubusercontent.com/95ec5aa3aa10b6f5d62295a3aea8107933881ca5/687474703a2f2f692e696d6775722e636f6d2f685374793663422e706e67)
+>
+> 另，此处有现成的配色方案工具供用家调配：
+>
+> - ~~http://tieba.baidu.com/p/2491103778~~
+> - 小狼毫：https://bennyyip.github.io/Rime-See-Me/
+> - 鼠须管：https://gjrobert.github.io/Rime-See-Me-squirrel/
+
+如果你无法访问上述现成的配色方案工具，本网站也克隆了一份：
+
+小狼毫： [Rime-See-Me](https://www.fkxxyz.com/Rime-See-Me)
+
+鼠须管： [Rime-See-Me-squirrel](https://www.fkxxyz.com/Rime-See-Me-squirrel)
+
+修改配置文件时要格外[注意](#基本配置)
 
 #### 候选横排
 
-候选词默认展示是竖排的，如果你习惯于横排展示候选词，请看 [【小狼毫】外觀設定](https://github.com/rime/home/wiki/CustomizationGuide#%E5%B0%8F%E7%8B%BC%E6%AF%AB%E5%A4%96%E8%A7%80%E8%A8%AD%E5%AE%9A)
+候选词默认展示是竖排的，如果你习惯于横排展示候选词，请看 [【小狼毫】外观设定](https://github.com/rime/home/wiki/CustomizationGuide#%E5%B0%8F%E7%8B%BC%E6%AF%AB%E5%A4%96%E8%A7%80%E8%A8%AD%E5%AE%9A)
 
-方便起见，在此也附上网页版的配置链接 [RIME西米](https://bennyyip.github.io/Rime-See-Me/)
+> #### 【小狼毫】外观设定
+>
+> 上文已介绍设定字体字号、制作配色方案的方法。
+>
+> 使用横向候选栏、嵌入式编码行：
+>
+> ```
+> # weasel.custom.yaml
+> patch:
+>   style/horizontal: true      # 候选横排
+>   style/inline_preedit: true  # 内嵌编码（仅支持TSF）
+>   style/display_tray_icon: true  # 显示托盘图标
+> ```
+
+只需要将   style/horizontal: true  这一行添加到 patch: 的后一行即可，注意开头有两个空格，冒号和true之间也有一个空格，不能多也不能少，如下图所示
+
+![](https://www.fkxxyz.com/img/weasel-7.png)
+
+然后重新部署
+
+![](https://www.fkxxyz.com/img/weasel-8.png)
+
+修改配置文件时要格外[注意](#基本配置)
 
 ### 关于发布页
 
@@ -243,9 +356,59 @@ patch:
 
 ## 基本配置
 
-所有配置都围绕着用户资料夹展开，参考 [Rime 中的數據文件分佈及作用](https://github.com/rime/home/wiki/RimeWithSchemata#rime-%E4%B8%AD%E7%9A%84%E6%95%B8%E6%93%9A%E6%96%87%E4%BB%B6%E5%88%86%E4%BD%88%E5%8F%8A%E4%BD%9C%E7%94%A8)
+所有配置都围绕着用户资料夹展开，参考 [Rime 中的数据文件分布及作用](https://github.com/rime/home/wiki/RimeWithSchemata#rime-%E4%B8%AD%E7%9A%84%E6%95%B8%E6%93%9A%E6%96%87%E4%BB%B6%E5%88%86%E4%BD%88%E5%8F%8A%E4%BD%9C%E7%94%A8)
 
-另外，需要注意 rime 的配置文件严格遵守 yaml 语法，缩进都是两个空格，不能用 tab 代替，否则配置是无效的（很多人折腾死在这）
+修改配置文件时需要注意：
+
+- 严格遵守 yaml 语法，缩进都是两个空格，不能用 tab 代替，否则配置是无效的
+- 只能有一个 patch: 行，如有相同的项目请合并。
+
+> ## Rime 中的数据文件分布及作用
+>
+> 除程序文件以外，Rime 还包括多种数据文件。 这些数据文件存在于以下位置：
+>
+> [共享资料夹](https://github.com/rime/home/wiki/SharedData)
+>
+> - 【中州韵】 `/usr/share/rime-data/`
+> - 【小狼毫】 `"安装目录\data"`
+> - 【鼠须管】 `"/Library/Input Methods/Squirrel.app/Contents/SharedSupport/"`
+>
+> [用户资料夹](https://github.com/rime/home/wiki/UserData)
+>
+> - 【中州韵】 `~/.config/ibus/rime/` （0.9.1 以下版本为 `~/.ibus/rime/`）
+> - 【小狼毫】 `"%APPDATA%\Rime"`
+> - 【鼠须管】 `~/Library/Rime/`
+>
+> [共享资料夹](https://github.com/rime/home/wiki/SharedData) 包含预设输入方案的源文件。 这些文件属于 Rime 所发行软件的一部份，在访问权限控制较严格的系统上对用户是只读的，因此谢绝软件版本更新以外的任何修改—— 一旦用户修改这里的文件，很可能影响后续的软件升级或在升级时丢失数据。
+>
+> 在「[部署](https://github.com/rime/home/wiki/CustomizationGuide#重新布署的操作方法)」操作时，将用到这里的输入方案源文件、并结合用户定制的内容来编译预设输入方案。
+>
+> [用户资料夹](https://github.com/rime/home/wiki/UserData) 则包含为用户准备的内容，如：
+>
+> - 〔全局设定〕 `default.yaml`
+> - 〔发行版设定〕 `weasel.yaml`
+> - 〔预设输入方案副本〕 `<方案标识>.schema.yaml`
+> - ※〔安装信息〕 `installation.yaml`
+> - ※〔用户状态信息〕 `user.yaml`
+>
+> 编译输入方案所产出的二进制文件：
+>
+> - 〔Rime 棱镜〕 `<方案标识>.prism.bin`
+> - 〔Rime 固态词典〕 `<词典名>.table.bin`
+> - 〔Rime 反查词典〕 `<词典名>.reverse.bin`
+>
+> 记录用户写作习惯的文件：
+>
+> - ※〔用户词典〕 `<词典名>.userdb/` 或 `<词典名>.userdb.kct`
+> - ※〔用户词典快照〕 `<词典名>.userdb.txt`、`<词典名>.userdb.kct.snapshot` 见于同步文件夹
+>
+> 以及用户自己设定的：
+>
+> - ※〔用户对全局设定的定制信息〕 `default.custom.yaml`
+> - ※〔用户对预设输入方案的定制信息〕 `<方案标识>.custom.yaml`
+> - ※〔用户自制输入方案〕及配套的词典源文件
+>
+> 注：以上标有 ※ 号的文件，包含用户资料，您在清理文件时要注意备份！
 
 ### 候选词个数
 
@@ -258,7 +421,7 @@ patch:
     - schema: clover
 ```
 
-详见 [一例、定製每頁候選數](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E6%AF%8F%E9%A0%81%E5%80%99%E9%81%B8%E6%95%B8)
+详见 [一例、定制每页候选数](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E6%AF%8F%E9%A0%81%E5%80%99%E9%81%B8%E6%95%B8)
 
 ### 模糊音
 
@@ -356,7 +519,7 @@ patch:
 
 由于 rime 的设定，这些切换也可以通过打开方案选单来完成，方案选单默认有个快捷键 F4 ，按 F4，再按 2，即可看到这些设定，选择相应的开关设定即可。
 
-这个快捷键可以修改，详见 [一例、定製喚出方案選單的快捷鍵](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E5%96%9A%E5%87%BA%E6%96%B9%E6%A1%88%E9%81%B8%E5%96%AE%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5)
+这个快捷键可以修改，详见 [一例、定制唤出方案选单的快捷键](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E5%96%9A%E5%87%BA%E6%96%B9%E6%A1%88%E9%81%B8%E5%96%AE%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5)
 
 如果你不想用 emoji 或者符号输入的功能，则需要修改配置文件才能永久关闭该功能：
 
@@ -386,7 +549,7 @@ patch:
 
 将 emoji_suggestion 或 symbol_support 里面的 reset 改成 0 即可。
 
-这里其实是定制方案选单的选项，reset 表示默认选中 states 的第几个选项，更多请看[一例、定製簡化字輸出](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E7%B0%A1%E5%8C%96%E5%AD%97%E8%BC%B8%E5%87%BA)
+这里其实是定制方案选单的选项，reset 表示默认选中 states 的第几个选项，更多请看[一例、定制简化字输出](https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E5%AE%9A%E8%A3%BD%E7%B0%A1%E5%8C%96%E5%AD%97%E8%BC%B8%E5%87%BA)
 
 ### 出现候选框时按 Shift 字母不会上屏
 
@@ -466,7 +629,7 @@ import_tables:
 
 建立了这个文件之后，会覆盖默认的词库。
 
-关于这个文件的格式详解： [Dict.yaml 詳解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md#dictyaml-%E8%A9%B3%E8%A7%A3)
+关于这个文件的格式详解： [Dict.yaml 详解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md#dictyaml-%E8%A9%B3%E8%A7%A3)
 
 在这里，需要说明 import_tables 导入表里的每一项。
 
@@ -575,7 +738,7 @@ import_tables:
 
 rime 允许不同系统之间进行词库的同步。
 
-该功能详见 [同步用戶資料](https://github.com/rime/home/wiki/UserGuide#%E5%90%8C%E6%AD%A5%E7%94%A8%E6%88%B6%E8%B3%87%E6%96%99)
+该功能详见 [同步用户资料](https://github.com/rime/home/wiki/UserGuide#%E5%90%8C%E6%AD%A5%E7%94%A8%E6%88%B6%E8%B3%87%E6%96%99)
 
 默认同步的文件夹在用户资料夹下 sync ，点击同步时，会生成这个文件夹，你也可以设置 installation.yaml 里面的 sync_dir 来修改同步文件夹。
 

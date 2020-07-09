@@ -14,7 +14,7 @@ sidebar: false
 
 ## 关于此博客
 
-此博客建立于 2019-11-22，基于 [hexo](https://hexo.io/) 框架，主题是 [material-x](https://xaoxuu.com/wiki/material-x/)，页面在 [coding](https://coding.net/) 上托管。
+此博客建立于 2019-11-22，基于 [hexo](https://hexo.io/) 框架，主题是 [Volantis](https://volantis.js.org/)，页面在 [coding](https://coding.net/) 上托管。
 
 项目地址 https://fkxxyz.coding.net/p/fkxxyz/git
 
